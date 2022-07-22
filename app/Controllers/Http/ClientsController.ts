@@ -28,7 +28,7 @@ export default class ClientsController {
       console.log("Filter by sex "+ sex)
     }
     
-    return response.status(200).json({'msm': 'Hello World!'});
+    return response.status(200).json({'msm': 'Hello World Aty!'});
   }
 
   public async store({request, response}: HttpContextContract) {
