@@ -2,26 +2,33 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import CreateClientValidator from 'App/Validators/CreateClientValidator';
 
-import Database from '@ioc:Adonis/Lucid/Database';
-
 export default class ClientsController {
   public async index({request, response}: HttpContextContract) {
 
-   const araes = await Database
-        .query()
-        .from('areas')
-        .select('*')
-        .where((query) => {
-          query
-          .whereILike('name', 'arEa1')
-          .whereNotNull('created_at')
-        })
-        .andWhere('status', 0)
-        
-        
+   // One away to get query string is bay using request.qs
+    const {name, age, sex} = request.qs();
 
+    //Request body get only body request 
+    const rb = request.body();
+    console.log("Request body jdhdh ", rb);
     
-    return response.status(200).json({'data': araes});
+    // Get body an query string
+    const rall = request.all();
+    console.log(rall);
+
+    // Also we can use request.params to get all params too
+    if (name){
+      console.log("Filter by name "+ name);
+    }
+    if (age) {
+      console.log("Filter by age", age)
+    }
+
+    if (sex){
+      console.log("Filter by sex "+ sex)
+    }
+    
+    return response.status(200).json({'msm': 'Hello World Aty!'});
   }
 
   public async store({request, response}: HttpContextContract) {

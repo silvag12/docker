@@ -13,3 +13,6 @@ docker-compose*
 *.md
 .git
 .gitignore
+
+https://docs.adonisjs.com/cookbooks/dockerizing-adonis
+https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e

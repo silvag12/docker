@@ -20,5 +20,5 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.resource('/client', 'ClientsController').apiOnly();
+Route.resource('/', 'ClientsController').apiOnly();
 
